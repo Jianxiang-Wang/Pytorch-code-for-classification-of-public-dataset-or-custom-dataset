@@ -14,7 +14,23 @@ from dataset import load
 
 #define the net
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
-net = VGG('VGG19')
+
+net = VGG('VGG16', 10)
+# net = ResNet18()
+# net = PreActResNet18()
+# net = GoogLeNet()
+# net = DenseNet121()
+# net = ResNeXt29_2x64d()
+# net = MobileNet()
+# net = MobileNetV2()
+# net = DPN92()
+# net = ShuffleNetG2()
+# net = SENet18()
+# net = ShuffleNetV2(1)
+# net = LeNet()
+# net = EfficientNetB0()
+# net = LeNet2()
+
 net = net.to(device)
 if device == 'cuda':
     net = torch.nn.DataParallel(net)

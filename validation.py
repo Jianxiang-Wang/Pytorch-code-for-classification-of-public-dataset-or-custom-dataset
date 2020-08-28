@@ -24,7 +24,7 @@ net = net.module
 
 
 #loading data
-_, testloader, classes = load()
+_, _, valloader, classes = load()
 
 
 def validation():
@@ -33,7 +33,7 @@ def validation():
     net.eval()
     correct = 0
     total = 0
-    for batch_idx, (inputs, targets) in enumerate(testloader):
+    for batch_idx, (inputs, targets) in enumerate(valloader):
             inputs, targets = inputs.to(device), targets.to(device)
             outputs = net(inputs)
     # Confusion Matrix

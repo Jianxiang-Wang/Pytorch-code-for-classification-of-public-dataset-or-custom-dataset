@@ -59,10 +59,12 @@ def load():
     else:
         print('using public dataset')
         trainset = torchvision.datasets.CIFAR100(root='./data', train=True, download=True, transform=transform_train)
-        testset = torchvision.datasets.CIFAR100(root='./data', train=False, download=True, transform=transform_test)  
+        testset = torchvision.datasets.CIFAR100(root='./data', train=False, download=True, transform=transform_test)
+        valset = torchvision.datasets.CIFAR100(root='./data', train=False, download=True, transform=transform_val)   
 
-        trainloader = DataLoader(trainset, batch_size=128, shuffle=True, num_workers=2)
-        testloader = DataLoader(testset, batch_size=100, shuffle=False, num_workers=2)
+        trainloader = DataLoader(trainset, batch_size=256, shuffle=True, num_workers=2)
+        testloader = DataLoader(testset, batch_size=256, shuffle=False, num_workers=2)
+        valloader = DataLoader(valset, batch_size=256, shuffle=False, num_workers=2)
     
     classes = ('plane', 'car', 'bird', 'cat', 'deer', 'dog', 'frog', 'horse', 'ship', 'truck')
     return trainloader, testloader, valloader, classes

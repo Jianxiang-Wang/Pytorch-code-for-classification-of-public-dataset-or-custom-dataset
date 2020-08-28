@@ -16,10 +16,13 @@ train_data_folder = './Dataset/train/'
 test_data_folder = './Dataset/test/'
 val_data_folder = './Dataset/val/'
 
+resize_weight = 32
+resize_height = 32
+
 # Data_transform
 print('==> Preparing data..')
 transform_train = transforms.Compose([
-    #transforms.Resize(32,32),
+    transforms.Resize((resize_weight,resize_height)),
     #transforms.RandomCrop(32, padding=4),
     transforms.RandomHorizontalFlip(),
     transforms.Grayscale(1),      #for grayscale
@@ -29,7 +32,7 @@ transform_train = transforms.Compose([
     ])
 
 transform_test = transforms.Compose([
-    #transforms.Resize(32,32),
+    transforms.Resize((resize_weight,resize_height)),
     transforms.Grayscale(1),      #for grayscale
     transforms.ToTensor(),
     #transforms.Normalize((0.4914, 0.4822, 0.4465), (0.2023, 0.1994, 0.2010)),
@@ -38,7 +41,7 @@ transform_test = transforms.Compose([
 
 
 transform_val = transforms.Compose([
-    #transforms.Resize(32,32),
+    transforms.Resize((resize_weight,resize_height)),
     transforms.Grayscale(1),      #for grayscale
     transforms.ToTensor(),
     #transforms.Normalize((0.4914, 0.4822, 0.4465), (0.2023, 0.1994, 0.2010)),

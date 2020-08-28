@@ -32,7 +32,7 @@ start_epoch = 0  # start from epoch 0 or last checkpoint epoch
 
 
 #loading data
-trainloader, testloader, classes = load()
+trainloader, testloader, _, classes = load()
 
 # Model
 print('==> Building model..')

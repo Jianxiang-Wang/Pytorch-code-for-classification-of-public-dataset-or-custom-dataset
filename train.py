@@ -36,7 +36,7 @@ trainloader, testloader, _, classes = load()
 
 # Model
 print('==> Building model..')
-net = VGG('VGG19', 10)
+net = VGG('VGG16', 10)
 # net = ResNet18()
 # net = PreActResNet18()
 # net = GoogLeNet()

@@ -14,7 +14,7 @@ import imageio
 
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
 
-net = VGG('VGG16', 24)
+net = VGG('VGG16', 10)
 net = net.to(device)
 
 resize_weight = 32

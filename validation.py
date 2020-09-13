@@ -29,7 +29,6 @@ net = VGG('VGG16', 10)
 # net = ShuffleNetV2(1)
 # net = LeNet()
 # net = EfficientNetB0()
-# net = LeNet2()
 
 net = net.to(device)
 if device == 'cuda':

@@ -37,17 +37,14 @@ transform_visualzation = transforms.Compose([
     ])
 
 def get_image(image_dir):
-    # 以RGB格式打开图像
-    # Pytorch DataLoader就是使用PIL所读取的图像格式
-    # 建议就用这种方法读取图像，当读入灰度图像时convert('')
+
     image = Image.open(image_dir).convert('RGB')
-    # 数据预处理方法
     image = transform_visualzation(image)
     image = image.unsqueeze(0)
     return image
 
 
-# 获取第k层的特征图
+
 def get_k_layer_feature_map(feature_extractor, k, x):
     with torch.no_grad():
         for index,layer in enumerate(feature_extractor):
@@ -55,7 +52,7 @@ def get_k_layer_feature_map(feature_extractor, k, x):
             if k == index:
                 return x
 
-# 获取网络层数
+
 def get_layer_num_feature_map(feature_extractor, x):
     with torch.no_grad():
         for index,layer in enumerate(feature_extractor):
@@ -64,7 +61,6 @@ def get_layer_num_feature_map(feature_extractor, x):
             
 
  
-#  可视化特征图
 def show_feature_map(feature_map, save_dir):
     feature_map = feature_map.squeeze(0)
     feature_map = feature_map.cpu().numpy()

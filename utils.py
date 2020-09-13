@@ -2,7 +2,6 @@
 """
 Created on Fri Mar 03 09:40:46 2020
 
-@author: Jianxiang Wang
 """
 '''Some helper functions for PyTorch, including:
     - get_mean_and_std: calculate the mean and std value of dataset.
